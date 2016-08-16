@@ -1,7 +1,8 @@
 import { Component }  from '@angular/core';
-import { IHeroe } from './entities/contracts/IHeroe.contract';
-import { Heroe } from './entities/Heroe.entity';
-import { ARRAYHEROES } from './mocks/tempData.mock';
+
+import { ARRAY_HEROES } from './mocks/tempData.mock';
+import { Heroe } from './entities/heroe.entity';
+
 
 @Component({
     selector: 'my-app',
@@ -53,36 +54,19 @@ import { ARRAYHEROES } from './mocks/tempData.mock';
             margin-right: .8em;
             border-radius: 4px 0 0 4px;
         }`],
-    template: `
-        <h1>{{ title }}</h1>
-        <h2>My Heroes!</h2>
-        <ul class="heroes">
-            <li *ngFor="let heroe of heroes" (click)="onSelect(heroe)">
-                <span class="badge">{{ heroe.id }}</span>{{ heroe.name }}
-            </li>
-        </ul>
-        <hr />
-        <!--<div>
-            <label>Id: </label>{{ selectedHeroe.id }}    
-        </div>
-        <div>
-            <label>Name: </label>
-            <input type="text" placeholder="Name" [(ngModel)]="selectedHeroe.name" ng-trim="false" />
-        </div>-->
-        `
+    templateUrl: 'app/app.component.html'
 })
 class AppComponent { 
     title: 'Tour de Heroes';
-    selectedHeroe: IHeroe;
-    heroes: IHeroe[];
+    selectedHeroe: Heroe;
+    heroes: Heroe[];
 
     constructor() {
-        this.heroes = ARRAYHEROES;
+        this.heroes = ARRAY_HEROES;
     }
 
-    onSelect(data: IHeroe) {
+    onSelect(data: Heroe) {
         this.selectedHeroe = data;
-        console.log(this.selectedHeroe);
     }
 }
 

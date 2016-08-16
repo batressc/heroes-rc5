@@ -1,6 +1,4 @@
-import { IHeroe } from './contracts/IHeroe.contract';
-
-class Heroe implements IHeroe {
+class Heroe {
     constructor(public id: number, public name: string, public ranking: number) { }
 }
 
