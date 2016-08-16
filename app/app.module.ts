@@ -11,7 +11,7 @@ import { routing } from './app.routing';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, routing],
-    declarations: [AppComponent, HeroeListComponent, HeroeDetailComponent, DashboardComponent, HeroeDetailComponent],
+    declarations: [AppComponent, HeroeListComponent, HeroeDetailComponent, DashboardComponent],
     providers: [HeroeService],
     bootstrap: [AppComponent]
 })
