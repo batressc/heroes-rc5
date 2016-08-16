@@ -1,5 +1,5 @@
 <div *ngIf="heroe">
-    <h2>{{ heroe.name }} details!</h2>
+    <h3>{{ heroe.name }} details!</h3>
     <div>
         <label>Id: </label>{{ heroe.id }}    
     </div>
@@ -7,4 +7,5 @@
         <label>Name: </label>
         <input type="text" placeholder="Name" [(ngModel)]="heroe.name" />
     </div>
+    <button (click)="irAtras()">Atrás</button>
 </div>

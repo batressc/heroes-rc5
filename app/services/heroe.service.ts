@@ -12,6 +12,14 @@ class HeroeService {
     getHeroesSlow(): Promise<Heroe[]> {
         return new Promise<Heroe[]>(resolve => setTimeout(() => resolve(ARRAY_HEROES), 3000));
     }
+
+    getHeroe(id: number): Promise<Heroe> {
+        return Promise.resolve(ARRAY_HEROES.find(x => x.id === id));
+    }
+
+    getHeroeSlow(id: number) {
+        return new Promise<Heroe>(resolve => setTimeout(() => resolve(ARRAY_HEROES.find(x => x.id === id)), 3000));
+    }
 }
 
 export { HeroeService };
