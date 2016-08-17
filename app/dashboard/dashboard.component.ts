@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Heroe } from './entities/heroe.entity';
-import { HeroeService } from './services/heroe.service';
+import { Heroe } from '../shared/entities/heroe.entity';
+import { HeroeService } from '../shared/services/heroe.service';
 
 @Component({
     selector: 'dashboard',
-    styleUrls: ['app/dashboard.component.css'],
-    templateUrl: 'app/dashboard.component.html'
+    styleUrls: ['app/dashboard/dashboard.component.css'],
+    templateUrl: 'app/dashboard/dashboard.component.html'
 })
 class DashboardComponent implements OnInit { 
     heroes: Heroe[];

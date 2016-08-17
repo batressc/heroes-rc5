@@ -1,14 +1,14 @@
 import { Component, OnInit }  from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Heroe } from './entities/heroe.entity';
-import { HeroeService } from './services/heroe.service';
+import { Heroe } from '../shared/entities/heroe.entity';
+import { HeroeService } from '../shared/services/heroe.service';
 
 
 @Component({
     selector: 'heroe-list',
-    styleUrls: ['app/heroe-list.component.css'],
-    templateUrl: 'app/heroe-list.component.html'
+    styleUrls: ['app/heroe-list/heroe-list.component.css'],
+    templateUrl: 'app/heroe-list/heroe-list.component.html'
 })
 class HeroeListComponent implements OnInit { 
     selectedHeroe: Heroe;

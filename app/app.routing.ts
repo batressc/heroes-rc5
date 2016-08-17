@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeroeListComponent } from './heroe-list.component';
-import { HeroeDetailComponent } from './heroe-detail.component';
-import { DashboardComponent } from './dashboard.component';
+import { HeroeListComponent } from './heroe-list/heroe-list.component';
+import { HeroeDetailComponent } from './heroe-detail/heroe-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
     { path: 'heroes', component: HeroeListComponent },
