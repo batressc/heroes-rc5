@@ -14,7 +14,9 @@ import { HeroeService } from '../shared/services/heroe.service';
 class HeroeDetailComponent implements OnInit {
     heroe: Heroe;
 
-    constructor(private heroeService: HeroeService, private route: ActivatedRoute) { }
+    constructor(private heroeService: HeroeService, private route: ActivatedRoute) { 
+        this.heroe = null;
+    }
 
     ngOnInit(): void {
         this.route.params.forEach((parametros: Params) => {
