@@ -19,7 +19,7 @@ class DashboardComponent implements OnInit {
     }
 
     getHeroes(): void {
-        this.heroeService.getHeroesSlow()
+        this.heroeService.getHeroesHttp()
             .then(resultado => this.heroes = resultado.slice(1, 5))
             .catch(error => {
                 this.heroes = [];

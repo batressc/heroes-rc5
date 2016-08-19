@@ -19,7 +19,7 @@ class HeroeDetailComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.forEach((parametros: Params) => {
             let id = +parametros['id'];
-            this.heroeService.getHeroeSlow(id)
+            this.heroeService.getHeroeHttp(id)
                 .then(result => this.heroe = result)
                 .catch(error => {
                     this.heroe = new Heroe(-1, '', -1);

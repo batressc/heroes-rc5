@@ -25,7 +25,7 @@ class HeroeListComponent implements OnInit {
     }
 
     getHeroes(): void {
-        this.heroeService.getHeroesSlow()
+        this.heroeService.getHeroesHttp()
             .then(result => this.heroes = result)
             .catch(error => {
                 this.heroes = [];
