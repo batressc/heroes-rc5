@@ -1,9 +1,13 @@
 <h2>My Heroes!</h2>
 <ul class="heroes">
     <li [class.selected]="heroe === selectedHeroe" *ngFor="let heroe of heroes" (click)="onSelect(heroe)">
-        <span class="badge">{{ heroe.ranking }}</span>{{ heroe.name }}<button class="delete-button">Borrar</button>
+        <span class="badge">{{ heroe.ranking }}</span>{{ heroe.name }}
     </li>
 </ul>
+<button (click)="agregarHeroe()">Agregar nuevo heroe</button>
+<div *ngIf="!selectedHeroe && isAgregar">
+    <heroe-detail [modoAgregar]="true"></heroe-detail>
+</div>
 <div *ngIf="selectedHeroe">
   <h3>{{ selectedHeroe.name | uppercase }} is my hero</h3>
   <button (click)="gotoDetail()">View Details</button>

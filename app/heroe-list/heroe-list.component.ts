@@ -13,8 +13,11 @@ import { HeroeService } from '../shared/services/heroe.service';
 class HeroeListComponent implements OnInit { 
     selectedHeroe: Heroe;
     heroes: Heroe[];
+    isAgregar: boolean;
 
-    constructor(private heroeService: HeroeService, private router: Router) { }
+    constructor(private heroeService: HeroeService, private router: Router) { 
+        this.isAgregar = false;
+    }
 
     ngOnInit(): void {
         this.getHeroes();
@@ -36,6 +39,11 @@ class HeroeListComponent implements OnInit {
     gotoDetail(): void {
         let link = ['/heroe', this.selectedHeroe.id];
         this.router.navigate(link);
+    }
+
+    agregarHeroe(): void {
+        this.isAgregar = true;
+        this.selectedHeroe = null;
     }
 }
 

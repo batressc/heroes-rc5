@@ -1,23 +1,18 @@
 <div *ngIf="heroe">
+    <h3>{{ heroe.name }} details!</h3>
     <table>
-        <caption><h3>{{ heroe.name }} details!</h3></caption>
-        <tbody>
-            <tr>
-                <td class="labeltext">Id</td>
-                <td>:</td>
-                <td>{{ heroe.id }}</td>
-            </tr>
-            <tr >
-                <td class="labeltext">Name</td>
-                <td>:</td>
-                <td><input type="text" placeholder="Name" [(ngModel)]="heroe.name" /></td>
-            </tr>
-            <tr>
-                <td class="labeltext">Ranking</td>
-                <td>:</td>
-                <td><input type="number" min="1" placeholder="Ranking" [(ngModel)]="heroe.ranking" /></td>
-            </tr>
-        </tbody>
+        <tr>
+            <td class="lbltxt">Id</td>
+            <td>{{ heroe.id }}</td>
+        </tr>
+        <tr>
+            <td class="lbltxt">Name</td>
+            <td><input type="text" placeholder="Name" [(ngModel)]="heroe.name" /></td>
+        </tr>
+        <tr>
+            <td class="lbltxt">Ranking</td>
+            <td><input type="number" min="1" placeholder="Ranking" [(ngModel)]="heroe.ranking" /></td>
+        </tr>
     </table>
     <button (click)="irAtras()">Atrás</button>
 </div>
