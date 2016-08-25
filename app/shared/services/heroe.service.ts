@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import * as _ from 'lodash';
 
 import { Heroe } from '../entities/heroe.entity';
 import { ARRAY_HEROES } from '../mocks/temp-data.mock'
@@ -43,6 +44,10 @@ class HeroeService {
         return this.getHeroesHttp()
             .then(heroes => heroes.find(x => x.id === id));
     } 
+
+    getLastID(): void {
+        console.log(_.VERSION);
+    }
 
     private post(heroe: Heroe): Promise<Heroe> {
         let headers = new Headers({
