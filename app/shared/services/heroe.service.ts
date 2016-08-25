@@ -45,8 +45,13 @@ class HeroeService {
             .then(heroes => heroes.find(x => x.id === id));
     } 
 
-    getLastID(): void {
-        console.log(_.VERSION);
+    getLastID(): Promise<number> {
+        return Promise.resolve(this.getHeroesHttp())
+            .then(heroes => {
+                let tempHeroe = _.maxBy(heroes, x => x.id);
+                if (tempHeroe) return tempHeroe.id;
+                else return -1;
+            });
     }
 
     private post(heroe: Heroe): Promise<Heroe> {

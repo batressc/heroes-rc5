@@ -22,8 +22,9 @@ class HeroeDetailComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.modoAgregar) {
-            this.heroeService.getLastID();
-            this.heroe = new Heroe(0, '', 1);
+            this.heroeService.getLastID()
+                .then(id => this.heroe = new Heroe(++id, '', 1))
+                .catch(error => this.heroe = new Heroe(-1, '', 1));
         } else {
             this.route.params.forEach((parametros: Params) => {
                 let id = +parametros['id'];
