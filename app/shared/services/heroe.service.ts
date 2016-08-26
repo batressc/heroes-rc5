@@ -42,7 +42,8 @@ class HeroeService {
 
     getHeroeHttp(id: number): Promise<Heroe> {
         return this.getHeroesHttp()
-            .then(heroes => heroes.find(x => x.id === id));
+            .then(heroes => heroes.find(x => x.id === id))
+            .catch(this.handleError);;
     } 
 
     getLastID(): Promise<number> {
@@ -51,7 +52,18 @@ class HeroeService {
                 let tempHeroe = _.maxBy(heroes, x => x.id);
                 if (tempHeroe) return tempHeroe.id;
                 else return -1;
-            });
+            })
+            .catch(this.handleError);
+    }
+
+    private findHeroe(heroe: Heroe): Promise<boolean> {
+        return Promise.resolve(this.getHeroesHttp())
+            .then(heroes => {
+                let tempHeroe = heroes.find(x => x.id === heroe.id);
+                if (tempHeroe) return true;
+                else return false;
+            })
+            .catch(this.handleError);
     }
 
     private post(heroe: Heroe): Promise<Heroe> {
@@ -89,10 +101,13 @@ class HeroeService {
     }
 
     save(heroe: Heroe): Promise<Heroe> {
-        if (heroe.id !== -1) return this.put(heroe);
-        else return this.post(heroe); 
+        return Promise.resolve(this.findHeroe(heroe))
+            .then(result => {
+                if (result) return this.post(heroe);
+                else return this.put(heroe);
+            })
+            .catch(this.handleError);
     }
-
 }
 
 export { HeroeService };

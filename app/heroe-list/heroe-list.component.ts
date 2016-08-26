@@ -45,6 +45,23 @@ class HeroeListComponent implements OnInit {
         this.isAgregar = true;
         this.selectedHeroe = null;
     }
+
+    onClose(data: Heroe): void {
+        this.isAgregar = false;
+        this.selectedHeroe = null;
+        if (data) this.getHeroes();
+    }
+
+    borrarHeroe(data: Heroe, event: any): void {
+        //Para evitar que siga con el click del boton
+        event.stopPropagation();
+        this.heroeService.delete(data)
+            .then(response => {
+                this.selectedHeroe = null;
+                this.getHeroes();
+            })
+            .catch(error => console.log(error));
+    }
 }
 
 export { HeroeListComponent };
