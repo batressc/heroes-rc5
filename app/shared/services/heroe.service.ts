@@ -103,8 +103,8 @@ class HeroeService {
     save(heroe: Heroe): Promise<Heroe> {
         return Promise.resolve(this.findHeroe(heroe))
             .then(result => {
-                if (result) return this.post(heroe);
-                else return this.put(heroe);
+                if (result) return this.put(heroe);
+                else return this.post(heroe);
             })
             .catch(this.handleError);
     }
