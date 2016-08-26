@@ -11,12 +11,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroeService } from './shared/services/heroe.service';
 import { routing } from './app.routing';
 import { InMemoryDataService } from './shared/mocks/in-memory-data.service';
+import { HeroeSearchComponent } from './heroe-search/heroe-search.component';
+import { HeroeSearchService } from './shared/services/heroe-search.service';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, routing, HttpModule],
-    declarations: [AppComponent, HeroeListComponent, HeroeDetailComponent, DashboardComponent],
+    declarations: [AppComponent, HeroeListComponent, HeroeDetailComponent, DashboardComponent, HeroeSearchComponent],
     providers: [
         HeroeService,
+        HeroeSearchService,
         { provide: XHRBackend, useClass: InMemoryBackendService },
         { provide: SEED_DATA, useClass: InMemoryDataService }
     ],
